@@ -117,8 +117,8 @@ In this study, for each business question, I will look at both 'Profit' and 'Pro
 ### Q1: Is there a correlation between the production budget and the profit?
 
 In order to understand the effect of prdoduction budget, I plotted the scatter graphs for both profit and profit rate. Then, I have calculated the correlation for each distribution. The correlation values are displayed on the plots.
-* As expected and observed on the plot (left), there is a high correlation between the production budget and profit.
-* The correlation between production budget and profit rate is almost zero (right plot). The shape of the distribution varies in different budget ranges, the correlation might be different, too.  Therefore, it is better to look at the profit rate distributions in zoomed budget ranges. 
+* As expected and observed on the plot (top), there is a high correlation between the production budget and profit.
+* The correlation between production budget and profit rate is almost zero (bottom plot). The shape of the distribution varies in different budget ranges, the correlation might be different, too.  Therefore, it is better to look at the profit rate distributions in zoomed budget ranges. 
 
 ![Profit-vs-Budget](figures/budget-profit1.png)
 
@@ -132,7 +132,7 @@ The production budget is divided in 4 ranges, and scatter graphs are plotted for
 
 ### Q2: Is there a correlation between the ratings and the profit?
 
-The below scatter plots show the profit versus average rating (left) and profit_rate versus average rating (right). There is good correlation between average rating and profit/profit_rate. However, after rating 8, the profit and profit rate drops. The left plot shows that, many high rating movies have bring low profit, they are probably low budget movies. According to the right plot, the profit_rate is also lower for the high rating movies. From profit point of view, I recommend to aim for making movies with average rating between 6 and 8.
+The below scatter plots show the profit versus average rating (top) and profit_rate versus average rating (bottom). There is good correlation between average rating and profit/profit_rate. However, after rating 8, the profit and profit rate drops. The left plot shows that, many high rating movies have bring low profit, they are probably low budget movies. According to the right plot, the profit_rate is also lower for the high rating movies. From profit point of view, I recommend to aim for making movies with average rating between 6 and 8.
 
 ![Profit-vs-Rating](figures/rating-profit.png)
 
