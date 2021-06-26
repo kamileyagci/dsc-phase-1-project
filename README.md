@@ -110,9 +110,11 @@ The data files are:
 
 ## Analysis and Results
 
-My analysis and business questions focus on the factors affecting the profit in movie industry. Therefore, it is crucial to have a good definition of the profit. Instead of using only one profit definition, I chose to explore two definitions:  
+My analysis and business questions focus on the factors affecting the profit in movie industry. Therefore, it is crucial to have a good definition of the profit. Instead of using only one profit definition, I chose to explore two definitions:
+
 * Profit: profit_gross =  worldwide_gross - production_budget
 * Profit Rate: profit_rate = worldwide_gross / production_budget
+
 In this study, for each business question, I will look at both 'Profit' and 'Profit Rate' distributions.
 
 ### Q1: Is there a correlation between the production budget and the profit?
