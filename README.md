@@ -66,24 +66,24 @@ The data files are:
         * Remove old movies with release year before 1990; focus on past 30 years.
         * Remove outlier movies with very low budget (<$10,000,000) and very high profit rate (>30). 
     * Data Visualization and Correlation Calculation: Scatter Plots for 'Profit vs Production Budget' and 'Profit Rate vs Production Rate'
-    * Detail look at the ''Profit vs Production Budget' at different budget ranges: Data Visualization, Correlation and Median profit Rate.
+    * Detailed look at the ''Profit vs Production Budget' at different budget ranges: Data Visualization, Correlation and Median profit Rate.
 
 8. Analyse Business Question 2: Is there a correlation between the ratings and the profit?
     * Use the subset of the data created for Business Question 1.
     * Data Visualization and Correlation Calculation: Scatter 'Profit vs Average Rating' and 'Profit Rate vs Average Rating'.
 
 9. Analyse Business Question 3: Which directors and writers make the most profit?
-    * Create a subset of the data with the selected/required columns for Question 3 and Question 4.
-    * Filter data specifed for Question 3 & 4:
-        i) Remove duplicate movies.
-        ii) Remove old movies with release year before 1990; focus on past 30 years.
-        iii) Remove the names of the dead people.
-        iv) Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
+    * Create a subset of the data with the selected/required columns for Question 3.
+    * Filter data specifed for Question 3:
+        * Remove duplicate movies.
+        * Remove old movies with release year before 1990; focus on past 30 years.
+        * Remove the names of the dead people.
+        * Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
     * Most Profitable Directors:
-        i) Remove the directors with less than 2 movies 
-        ii) GroupBy Directors and calculate the median Profit and median Profit Rate
-        ii) Data Visualization: Bar Graphs for Profit and Profit Rate. Top names will be displayed only. 
-        iv) Find the intersection of the names on the two lists/bar graphs: Profit and Profit Rate.
+        * Remove the directors with less than 2 movies 
+        * GroupBy Directors and calculate the median Profit and median Profit Rate
+        * Data Visualization: Bar Graphs for Profit and Profit Rate. Top names will be displayed only. 
+        * Find the intersection of the names on the two lists/bar graphs: Profit and Profit Rate.
     * Most Profitable Writers:
         Apply the same analysis as directors.
     * Most Profitable Actors:
@@ -94,9 +94,9 @@ The data files are:
 10. Analyse Business Question 4: Which genres make the most profit?
     * Create a subset of the data with the selected/required columns for Question 4.
     * Filter data specifed for Question 4:
-        i) Remove duplicate movies.
-        ii) Remove old movies with release year before 1990; focus on past 30 years.
-        iii) Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
+        * Remove duplicate movies.
+        * Remove old movies with release year before 1990; focus on past 30 years.
+        * Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
     * GroupBy Genres and calculate the median Profit and median Profit Rate. 
     * Data Visualization: Bar Graphs for Profit and Profit Rate. Common genres with large number of movies will be displayed only. 
     * Visually determine the most profitable names based on two bar graphs: Profit and Profit Rate.
