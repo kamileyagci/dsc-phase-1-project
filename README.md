@@ -1,65 +1,217 @@
-# Phase 1 Project
+# Movie Industry Study 
 
-You've made it all the way through the first phase of this course - take a minute to celebrate your awesomeness!
+**Author: Kamile Yagci**
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-1-project/master/awesome.gif)
+## Overview
 
-Now you will put your new skills to use with a large end-of-Phase project! This project should take 20 to 30 hours to complete.
+In this project, I have analyzed the Movie Industry. The Microsoft decided to open a new studio and is exploring what types of films are currently doing the best at the box office. The results of this study will advise Microsoft on making business decisions.
 
-## Project Overview
+## Business Problem
 
-For this project, you will use exploratory data analysis to generate insights for a business stakeholder.
+I have studied the five questions in order to determine the most profitable approach in movie making: 
 
-### Business Problem
+1. Is there a correlation between the production budget and the profit?
+2. Is there a correlation between the ratings and the profit?
+3. Which directors, writers, actors and actresses make the most profit?
+4. Which genres make the most profit?
 
-Microsoft sees all the big companies creating original video content and they want to get in on the fun. They have decided to create a new movie studio, but they don’t know anything about creating movies. You are charged with exploring what types of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of Microsoft's new movie studio can use to help decide what type of films to create.
+## Data
 
-### The Data
+Based on the selected Business Problems, I used the data from IMDB and The Numbers in the analysis. 
 
-In the folder `zippedData` are movie datasets from:
-
-* [Box Office Mojo](https://www.boxofficemojo.com/)
 * [IMDB](https://www.imdb.com/)
-* [Rotten Tomatoes](https://www.rottentomatoes.com/)
-* [TheMovieDB](https://www.themoviedb.org/)
 * [The Numbers](https://www.the-numbers.com/)
 
-It is up to you to decide what data from this to use and how to use it. If you want to make this more challenging, you can scrape websites or make API calls to get additional data. If you are feeling overwhelmed or behind (e.g. struggled with the Phase 1 Code Challenge), we recommend you use only the following data files:
+The data files are:
 
-* imdb.title.basics
-* imdb.title.ratings
-* bom.movie_gross
+* tn.movie_budgets.csv.gz
+* imdb.title.basics.csv.gz
+* imdb.title.ratings.csv.gz
+* imdb.title.principals.csv.gz
+* imdb.name.basics.csv.gz
 
-## Deliverables
+## Method
 
-There are three deliverables for this project:
+**Part I**
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
+1. Explore all the provided Movie Industry Data Files from IMDB, The Numbers, Rotten Tomatoes, Box Office Mojo, TheMovieDB.
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
+2. Determine the Business Questions.
 
-### Key Points
+3. Select which Data Files to be used in the Analysis: 5 data files selected from IMDB and The Numbers.
 
-* **Your analysis should yield three concrete business recommendations.** The ultimate purpose of exploratory analysis is not just to learn about the data, but to help an organization perform better. Explicitly relate your findings to business needs by recommending actions that you think the business (Microsoft) should take.
+4. Merge Data into one DataFrame.
 
-* **Communicating about your work well is extremely important.** Your ability to provide value to an organization - or to land a job there - is directly reliant on your ability to communicate with them about what you have done and why it is valuable. Create a storyline your audience (the head of Microsoft's new movie studio) can follow by walking them through the steps of your process, highlighting the most important points and skipping over the rest.
+4. Clean Data
+    * Remove the unnecessary columns
+    * Remove rows with $0 worldwide_gross
+    * Change the currency columns to float
+    * Seperate genres
+    * Slice the release year from the release date
 
-* **Use plenty of visualizations.** Visualizations are invaluable for exploring your data and making your findings accessible to a non-technical audience. Spotlight visuals in your presentation, but only ones that relate directly to your recommendations. Simple visuals are usually best (e.g. bar charts and line graphs), and don't forget to format them well (e.g. labels, titles).
+5. Create Profit Columns
+    Two type of profit is defined for this study:
+    * Profit: profit_gross =  worldwide_gross - production_budget
+    * Profit Rate: profit_rate = worldwide_gross / production_budget
 
-## Getting Started
+6. Save the created DataFrame into a a new data file 'myData.csv'. This is the only data file be used for the analysis.
 
-Please start by reviewing this assignment, the rubric at the bottom of it, and the "Project Submission & Review" page. If you have any questions, please ask your instructor ASAP.
+**Part II**
 
-Next, we recommend you check out [the Phase 1 Project Templates and Examples repo](https://github.com/learn-co-curriculum/dsc-project-template) and use the MVP template for your project.
+7. Analyse Business Question 1: Is there a correlation between the production budget and the profit?
+    * Create a subset of the data with the selected/required columns for Question 1 and Question 2.
+    * Filter data specifed for Question 1 & 2:
+        i) Remove duplicate movies.
+        ii) Remove old movies with release year before 1990; focus on past 30 years.
+        iii) Remove outlier movies with very low budget (<$10,000,000) and very high profit rate (>30). 
+    * Data Visualization and Correlation Calculation: Scatter Plots for 'Profit vs Production Budget' and 'Profit Rate vs Production Rate'
+    * Detail look at the ''Profit vs Production Budget' at different budget ranges: Data Visualization, Correlation and Median profit Rate.
 
-Alternatively, you can fork [the Phase 1 Project Repository](https://github.com/learn-co-curriculum/dsc-phase-1-project), clone it locally, and work in the `student.ipynb` file. Make sure to also add and commit a PDF of your presentation to your repository with a file name of `presentation.pdf`.
+8. Analyse Business Question 2: Is there a correlation between the ratings and the profit?
+    * Use the subset of the data created for Business Question 1.
+    * Data Visualization and Correlation Calculation: Scatter 'Profit vs Average Rating' and 'Profit Rate vs Average Rating'.
 
-## Project Submission and Review
+9. Analyse Business Question 3: Which directors and writers make the most profit?
+    * Create a subset of the data with the selected/required columns for Question 3 and Question 4.
+    * Filter data specifed for Question 3 & 4:
+        i) Remove duplicate movies.
+        ii) Remove old movies with release year before 1990; focus on past 30 years.
+        iii) Remove the names of the dead people.
+        iv) Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
+    * Most Profitable Directors:
+        i) Remove the directors with less than 2 movies 
+        ii) GroupBy Directors and calculate the median Profit and median Profit Rate
+        ii) Data Visualization: Bar Graphs for Profit and Profit Rate. Top names will be displayed only. 
+        iv) Find the intersection of the names on the two lists/bar graphs: Profit and Profit Rate.
+    * Most Profitable Writers:
+        Apply the same analysis as directors.
+    * Most Profitable Actors:
+        Apply the same analysis as directors.
+    * Most Profitable Actresses:
+        Apply the same analysis as directors.
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
+10. Analyse Business Question 4: Which genres make the most profit?
+    * Create a subset of the data with the selected/required columns for Question 4.
+    * Filter data specifed for Question 4:
+        i) Remove duplicate movies.
+        ii) Remove old movies with release year before 1990; focus on past 30 years.
+        iii) Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
+    * GroupBy Genres and calculate the median Profit and median Profit Rate. 
+    * Data Visualization: Bar Graphs for Profit and Profit Rate. Common genres with large number of movies will be displayed only. 
+    * Visually determine the most profitable names based on two bar graphs: Profit and Profit Rate.
 
-## Summary
+**Part III**
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+11. Repeat the analysis for Question 3 'Most profitable directors, writers, actors and actresses' for Movies with Medium Budget ($20,000,000 < production_budget > $100,000,000).
+
+12. Repeat the analysis for Question 4 'Most profitable genres' for Movies with Medium Budget ($20,000,000 < production_budget > $100,000,000).
+
+
+## Analysis and Results
+
+My analysis and business questions focus on the factors affecting the profit in movie industry. Therefore, it is crucial to have a good definition of the profit. Instead of using only one profit definition, I chose to explore two definitions:  
+    * Profit: profit_gross =  worldwide_gross - production_budget
+    * Profit Rate: profit_rate = worldwide_gross / production_budget
+In this study, for each business question, I will look at both 'Profit' and 'Profit Rate' distributions.
+
+### Q1: Is there a correlation between the production budget and the profit?
+
+In order to understand the effect of prdoduction budget, I plotted the scatter graphs for both profit and profit rate. Then, I have calculated the correlation for each distribution. The correlation values are displayed on the plots.
+* As expected and observed on the plot (left), there is a high correlation between the production budget and profit.
+* The correlation between production budget and profit rate is almost zero (right plot). The shape of the distribution varies in different budget ranges, the correlation might be different, too.  Therefore, it is better to look at the profit rate distributions in zoomed budget ranges. 
+
+![Profit-vs-Budget](figures/budget-profit1.png)
+
+The production budget is divided in 4 ranges, and scatter graphs are plotted for all. The median profit_rate is calculated and displayed on the graphs in addition to the correlation values.
+* production_budget <= $20,000,000 (top left): Almost zero correlation. Small median profit rate. Investment not recommended.
+* $20,000,000 < production_budget <= $100,000,000 (top right): Almost zero correlation. Acceptable profit rate. Investment is recommended.
+* $100,000,000 < production_budget <= $200,000,000 (bottom left): Some correlation exists. Good, stable profit rate. Highly recommended for investement.
+* production_budget > $100,000,000 (bottom right): Negative correlation. Median profit rate is high. There is a likelihood that profit rate will decrease as the budget increases. The risk is high on this investment. The uncertinity in the analysis result is high due to the small data in this range.
+
+![Profit-vs-BudgetRanges](figures/budget-profit2.png)
+
+### Q2: Is there a correlation between the ratings and the profit?
+
+The below scatter plots show the profit versus average rating (left) and profit_rate versus average rating (right). There is good correlation between average rating and profit/profit_rate. However, after rating 8, the profit and profit rate drops. The left plot shows that, many high rating movies have bring low profit, they are probably low budget movies. According to the right plot, the profit_rate is also lower for the high rating movies. From profit point of view, I recommend to aim for making movies with average rating between 6 and 8.
+
+![Profit-vs-Rating](figures/rating-profit.png)
+
+### Q3: Which directors, writers, actors and actresses make the most profit?
+
+For Business Questions 3, 4 and 5, I have analyzed the movies only in the budget ranges seperately:
+* High budget: production_budget > $100,000,000
+* Medium budget: $20,000,000 < production_budget <= $100,000,000
+
+**Directors**
+
+The figure below displays the bar graphs for the top directors based on profit (left) and based on profit_rate (right) for high budget movies. 
+
+![Directors-HighBudget](figures/director-profit_highBudget.png)
+
+For this analysis, I declare that the intersection of these two bar graphs is the list of the most profitable directors.
+
+Most profitable directors for high budget Movies: 'Lee Unkrich', 'Michael Bay', 'Jon Favreau', 'Rich Moore', 'Anthony Russo', 'Sam Mendes', 'Joe Russo', 'Byron Howard', 'Joss Whedon', 'Francis Lawrence', 'Don Hall'
+
+Similar study made for the medium budget movies. 
+Most profitable directors for medium budget Movies: 'Chris Renaud', 'Christopher Miller', 'Genndy Tartakovsky', 'Kyle Balda', 'Pierre Coffin', 'James Foley', 'Steve Martino', 'Jake Kasdan', 'Phil Lord', 'Paul Feig', 'Olivier Megaton'
+
+**Writers**
+
+The figure below displays the bar graphs for the top writers based on profit (left) and based on profit_rate (right) for high budget movies. 
+
+![Writers-HighBudget](figures/writer-profit_highBudget.png)
+
+Most profitable writers for high budget Movies: 'Linda Woolverton', 'Phil Johnston', 'Gary Scott Thompson', 'Meg LeFauve', 'Jim Reardon', 'Nicole Perlman', 'Jeff Pinkner', 'Erik Sommers', 'Chris McKenna', 'Derek Connolly', 'Suzanne Collins', 'Zak Penn', 'Michael Arndt'
+
+Most profitable writers for medium budget Movies: 'Ken Daurio', 'Stephenie Meyer', 'Kevin Hageman', 'Dan Hageman', 'Erik Sommers', 'Cinco Paul', 'Wellesley Wild', 'Anthony McCarten', 'Brian Lynch', 'E.L. James', 'Robert Mark Kamen', 'Craig Mazin', 'Alec Sulkin', 'Billy Ray', 'Chris McKenna', 'Niall Leonard'
+
+**Actors**
+
+The figure below displays the bar graphs for the top actors based on profit (left) and based on profit_rate (right) for high budget movies. 
+
+![Actors-HighBudget](figures/actor-profit_highBudget.png)
+
+Most profitable actors for high budget Movies: 'Josh Duhamel', 'Vin Diesel', 'Mark Ruffalo', 'Chris Hemsworth', 'Josh Gad', 'Robert Downey Jr.', 'Javier Bardem', 'Chris Evans', 'Idris Elba', 'Josh Hutcherson', 'Chris Pratt', 'Jason Momoa', 'Jeremy Renner'
+
+Most profitable actors for medium budget Movies: 'Eric Johnson', 'Jamie Dornan', 'Michael Keaton', 'Taylor Lautner', 'Eric Stonestreet', 'Aziz Ansari', 'Neil Patrick Harris', 'Bradley Cooper', 'Thomas Brodie-Sangster', "Dylan O'Brien", 'Seth MacFarlane', 'Andy Samberg', 'Benjamin Bratt', 'Marwan Kenzari', 'Ed Skrein', 'Denis Leary'
+
+**Actresses**
+
+The figure below displays the bar graphs for the top actresses based on profit (left) and based on profit_rate (right) for high budget movies. 
+
+![Actresses-HighBudget](figures/actress-profit_highBudget.png)
+
+Most profitable actresses for high budget Movies: 'Katherine Waterston', 'Emma Watson', 'Gal Gadot', 'Scarlett Johansson', 'Anne Hathaway', 'Jessica Chastain', 'Naomie Harris', 'Bryce Dallas Howard', 'Michelle Williams', 'Cate Blanchett', 'Brie Larson'
+
+Most profitable actresses for medium budget Movies: 'Ali Larter', 'Hailee Steinfeld', 'Jennifer Lawrence', 'Dakota Johnson', 'Eloise Mumford', 'Sandra Bullock', 'Jennifer Ehle', 'Kristen Wiig', 'Miranda Cosgrove', 'Famke Janssen', 'Selena Gomez'
+
+### Q4: Which genres make the most profit (High Budget)?
+
+The bar graphs below compares the most common genres for profit (left) and for profit_rate (right) for high budget movies.
+
+![Genres2-HighBudget](figures/genres-profit2_highBudget.png)
+
+Most profitable genres for high budget Movies: Sci-Fi, Animation, Thriller, Adventure
+
+Similar study made for medium budget movies.
+Most profitable genres for medium budget Movies: Animation, Music, Family, Comedy, Adventure
+
+## Conclusion
+
+Here are my business recommendations in movie making for the most profit:
+
+* Invest on movies with production budget between $100,000,000 and $200,000,000.
+* Aim for making movies with average rating between 6 and 8.
+* Hire the listed directors, writers, actors and actresses for the movies in the recommended budget range. See Analysis and Result Section, Question 3.
+* Invest on Sci-Fi, Animation, Thriller, Adventure movies for the recommended budget range.
+
+The movies with medium production budget, $20,000,000 and $100,000,000, are acceptable for investment. For these movies, the profitable directors, writers, actors and actresses are different. The profitable genre for the medium budget range is also different than high budget range. Follow the bedget specific recommendations in Analysis and Result Section, Question 3 an 4.
+
+
+## Further Improvements
+
+* Repeat the analysis in more budget ranges: $10,000,000 - $50,000,000 - $100,000 - $200,000,00 - up.
+* Study the most profitable directors, actors, actresses and actors for each genre seperately.
+* This study used the data of the movies after 1990. Repeat the study for the movies after 2000, even though it will cause the reduction of the entries and increase the standard deviation in the results.
+
+
