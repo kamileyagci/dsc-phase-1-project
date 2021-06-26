@@ -40,7 +40,8 @@ def categoryStudy(df, jobCategory, maxList, figHeight, budget):
     print('Best {} List: '.format(jobCategory), best)
 
     fig, axes = plt.subplots(1, 2, figsize=(20, figHeight))
-    plt.subplots_adjust(wspace=0.4)
+    plt.subplots_adjust(wspace=0.6)
+    sns.set(font_scale=1.5)
 
     series1.plot.barh(ax=axes[0])
     axes[0].set_title('Median Profit per {} (Production Budget > $100,000,000)'.format(jobCategory))
