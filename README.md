@@ -51,7 +51,7 @@ The data files are:
 
 5. Create Profit Columns
 
-    Two type of profit is defined for this study:
+    Two types of profit is defined for this study:
     * Profit: profit_gross =  worldwide_gross - production_budget
     * Profit Rate: profit_rate = worldwide_gross / production_budget
 
@@ -62,9 +62,9 @@ The data files are:
 7. Analyse Business Question 1: Is there a correlation between the production budget and the profit?
     * Create a subset of the data with the selected/required columns for Question 1 and Question 2.
     * Filter data specifed for Question 1 & 2:
-        i) Remove duplicate movies.
-        ii) Remove old movies with release year before 1990; focus on past 30 years.
-        iii) Remove outlier movies with very low budget (<$10,000,000) and very high profit rate (>30). 
+        * Remove duplicate movies.
+        * Remove old movies with release year before 1990; focus on past 30 years.
+        * Remove outlier movies with very low budget (<$10,000,000) and very high profit rate (>30). 
     * Data Visualization and Correlation Calculation: Scatter Plots for 'Profit vs Production Budget' and 'Profit Rate vs Production Rate'
     * Detail look at the ''Profit vs Production Budget' at different budget ranges: Data Visualization, Correlation and Median profit Rate.
 
