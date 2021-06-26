@@ -8,7 +8,7 @@ In this project, I have analyzed the Movie Industry. The Microsoft decided to op
 
 ## Business Problem
 
-I have studied the five questions in order to determine the most profitable approach in movie making: 
+I have studied the four questions in order to determine the most profitable approach in movie making: 
 
 1. Is there a correlation between the production budget and the profit?
 2. Is there a correlation between the ratings and the profit?
@@ -50,6 +50,7 @@ The data files are:
     * Slice the release year from the release date
 
 5. Create Profit Columns
+
     Two type of profit is defined for this study:
     * Profit: profit_gross =  worldwide_gross - production_budget
     * Profit Rate: profit_rate = worldwide_gross / production_budget
