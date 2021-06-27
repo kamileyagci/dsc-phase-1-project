@@ -126,10 +126,10 @@ In order to understand the effect of prdoduction budget, I plotted the scatter g
 ![Profit-vs-Budget](figures/budget-profit1.png)
 
 The production budget is divided in 4 ranges, and scatter graphs are plotted for all. The median profit_rate is calculated and displayed on the graphs in addition to the correlation values.
-* production_budget <= $20,000,000 (top left): Almost zero correlation. Small median profit rate. Investment not recommended.
-* $20,000,000 < production_budget <= $100,000,000 (top right): Almost zero correlation. Acceptable profit rate. Investment is recommended.
-* $100,000,000 < production_budget <= $200,000,000 (bottom left): Some positive correlation exists. Good, stable profit rate. Highly recommended for investement.
-* production_budget > $100,000,000 (bottom right): Negative correlation. Median profit rate is high. There is a likelihood that profit rate will decrease as the budget increases. The risk is high on this investment. The uncertinity in the analysis for this budget range is high due to the small data available.
+* Low budget: production_budget <= $20,000,000 (top left): Almost zero correlation. Small median profit rate. Investment not recommended.
+* Medium budget: $20,000,000 < production_budget <= $100,000,000 (top right): Almost zero correlation. Acceptable profit rate. Investment is recommended.
+* High budget: $100,000,000 < production_budget <= $200,000,000 (bottom left): Some positive correlation exists. Good, stable profit rate. Highly recommended for investement.
+* Very high budget: production_budget > $100,000,000 (bottom right): Negative correlation. Median profit rate is high. There is a likelihood that profit rate will decrease as the budget increases. The risk is high on this investment. The uncertinity in the analysis for this budget range is high due to the small data available.
 
 ![Profit-vs-BudgetRanges](figures/budget-profit2.png)
 
@@ -232,7 +232,7 @@ Here are my business recommendations in movie making for the most profit:
 The movies with medium production budget, $20,000,000 and $100,000,000, are acceptable for investment. For these movies, the profitable directors, writers, actors and actresses are different. The profitable genre for the medium budget range is also different than high budget range. Follow the budget specific recommendations in Analysis and Result Section, Question 3 an 4.
 
 
-## Further Improvements
+## Future Work
 
 * Repeat the analysis in more budget ranges: $10,000,000 - $50,000,000 - $100,000 - $200,000,00 - up.
 * Study the most profitable directors, actors, actresses and actors for each genre seperately.
