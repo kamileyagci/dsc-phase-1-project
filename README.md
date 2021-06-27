@@ -180,7 +180,7 @@ Most profitable actors:
 
 The figure below displays the bar graphs for the top actresses based on profit (left) and based on profit_rate (right) for high budget movies. 
 
-Most profitable actresses for high budget Movies: 'Katherine Waterston', 'Emma Watson', 'Gal Gadot', 'Scarlett Johansson', 'Anne Hathaway', 'Jessica Chastain', 'Naomie Harris', 'Bryce Dallas Howard', 'Michelle Williams', 'Cate Blanchett', 'Brie Larson'
+Most profitable actresses: 'Katherine Waterston', 'Emma Watson', 'Gal Gadot', 'Scarlett Johansson', 'Anne Hathaway', 'Jessica Chastain', 'Naomie Harris', 'Bryce Dallas Howard', 'Michelle Williams', 'Cate Blanchett', 'Brie Larson'
 
 ![Actresses-HighBudget](figures/actress-profit_highBudget.png)
 
@@ -208,7 +208,7 @@ For Business Questions 4, I have analyzed the movies in two seperate budget rang
 
 The bar graphs below compares the most common genres for profit (left) and for profit_rate (right) for high budget movies.
 
-Most profitable genres: Sci-Fi, Animation, Thriller, Adventure
+Most profitable genres for High Budget: Sci-Fi, Animation, Thriller, Adventure
 
 ![Genres2-HighBudget](figures/genres-profit2_highBudget.png)
 
@@ -216,7 +216,7 @@ Most profitable genres: Sci-Fi, Animation, Thriller, Adventure
 
 Similar study made for medium budget movies.
 
-Profitable Genres: Animation, Music, Family, Comedy, Adventure
+Profitable Genres for Medium Budget: Animation, Music, Family, Comedy, Adventure
 
 ![Genres2-HighBudget](figures/genres-profit2_medBudget.png)
 
