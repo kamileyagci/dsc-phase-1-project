@@ -229,7 +229,7 @@ Here are my business recommendations in movie making for the most profit:
 * Hire the listed directors, writers, actors and actresses for the movies in the recommended budget range. See Analysis and Result Section, Question 3.
 * Invest on Sci-Fi, Animation, Thriller, Adventure movies for the recommended budget range.
 
-The movies with medium production budget, $20,000,000 and $100,000,000, are acceptable for investment. For these movies, the profitable directors, writers, actors and actresses are different. The profitable genre for the medium budget range is also different than high budget range. Follow the bedget specific recommendations in Analysis and Result Section, Question 3 an 4.
+The movies with medium production budget, $20,000,000 and $100,000,000, are acceptable for investment. For these movies, the profitable directors, writers, actors and actresses are different. The profitable genre for the medium budget range is also different than high budget range. Follow the budget specific recommendations in Analysis and Result Section, Question 3 an 4.
 
 
 ## Further Improvements
