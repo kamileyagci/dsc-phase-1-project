@@ -128,76 +128,97 @@ In order to understand the effect of prdoduction budget, I plotted the scatter g
 The production budget is divided in 4 ranges, and scatter graphs are plotted for all. The median profit_rate is calculated and displayed on the graphs in addition to the correlation values.
 * production_budget <= $20,000,000 (top left): Almost zero correlation. Small median profit rate. Investment not recommended.
 * $20,000,000 < production_budget <= $100,000,000 (top right): Almost zero correlation. Acceptable profit rate. Investment is recommended.
-* $100,000,000 < production_budget <= $200,000,000 (bottom left): Some correlation exists. Good, stable profit rate. Highly recommended for investement.
-* production_budget > $100,000,000 (bottom right): Negative correlation. Median profit rate is high. There is a likelihood that profit rate will decrease as the budget increases. The risk is high on this investment. The uncertinity in the analysis result is high due to the small data in this range.
+* $100,000,000 < production_budget <= $200,000,000 (bottom left): Some positive correlation exists. Good, stable profit rate. Highly recommended for investement.
+* production_budget > $100,000,000 (bottom right): Negative correlation. Median profit rate is high. There is a likelihood that profit rate will decrease as the budget increases. The risk is high on this investment. The uncertinity in the analysis for this budget range is high due to the small data available.
 
 ![Profit-vs-BudgetRanges](figures/budget-profit2.png)
 
 ### Q2: Is there a correlation between the ratings and the profit?
 
-The below scatter plots show the profit versus average rating (top) and profit_rate versus average rating (bottom). There is good correlation between average rating and profit/profit_rate. However, after rating 8, the profit and profit rate drops. The left plot shows that, many high rating movies have bring low profit, they are probably low budget movies. According to the right plot, the profit_rate is also lower for the high rating movies. From profit point of view, I recommend to aim for making movies with average rating between 6 and 8.
+The below scatter plots show the profit versus average rating (top) and profit_rate versus average rating (bottom). There is good correlation between average rating and profit/profit_rate. However, after rating 8, the profit and profit rate drops. The left plot shows that, many high rating movies bring low profit, they are probably low budget movies. According to the right plot, the profit_rate is also low for the high rating movies. From profit point of view, I recommend to aim for making movies with average rating between 6 and 8.
 
 ![Profit-vs-Rating](figures/rating-profit.png)
 
 ### Q3: Which directors, writers, actors and actresses make the most profit?
 
-For Business Questions 3, 4 and 5, I have analyzed the movies only in the budget ranges seperately:
+For Business Questions 3 and 4, I have analyzed the movies in two seperate budget ranges:
 * High budget: production_budget > $100,000,000
 * Medium budget: $20,000,000 < production_budget <= $100,000,000
+
+#### High Budget Movies (production_budget > $100,000,000)
 
 **Directors**
 
 The figure below displays the bar graphs for the top directors based on profit (left) and based on profit_rate (right) for high budget movies. 
 
-![Directors-HighBudget](figures/director-profit_highBudget.png)
-
 For this analysis, I declare that the intersection of these two bar graphs is the list of the most profitable directors.
 
-Most profitable directors for high budget Movies: 'Lee Unkrich', 'Michael Bay', 'Jon Favreau', 'Rich Moore', 'Anthony Russo', 'Sam Mendes', 'Joe Russo', 'Byron Howard', 'Joss Whedon', 'Francis Lawrence', 'Don Hall'
+Most profitable directors: 
+'Lee Unkrich', 'Michael Bay', 'Jon Favreau', 'Rich Moore', 'Anthony Russo', 'Sam Mendes', 'Joe Russo', 'Byron Howard', 'Joss Whedon', 'Francis Lawrence', 'Don Hall'
 
-Similar study made for the medium budget movies. 
-Most profitable directors for medium budget Movies: 'Chris Renaud', 'Christopher Miller', 'Genndy Tartakovsky', 'Kyle Balda', 'Pierre Coffin', 'James Foley', 'Steve Martino', 'Jake Kasdan', 'Phil Lord', 'Paul Feig', 'Olivier Megaton'
+![Directors-HighBudget](figures/director-profit_highBudget.png)
 
 **Writers**
 
 The figure below displays the bar graphs for the top writers based on profit (left) and based on profit_rate (right) for high budget movies. 
 
+Most profitable writers: 
+'Linda Woolverton', 'Phil Johnston', 'Gary Scott Thompson', 'Meg LeFauve', 'Jim Reardon', 'Nicole Perlman', 'Jeff Pinkner', 'Erik Sommers', 'Chris McKenna', 'Derek Connolly', 'Suzanne Collins', 'Zak Penn', 'Michael Arndt'
+
 ![Writers-HighBudget](figures/writer-profit_highBudget.png)
-
-Most profitable writers for high budget Movies: 'Linda Woolverton', 'Phil Johnston', 'Gary Scott Thompson', 'Meg LeFauve', 'Jim Reardon', 'Nicole Perlman', 'Jeff Pinkner', 'Erik Sommers', 'Chris McKenna', 'Derek Connolly', 'Suzanne Collins', 'Zak Penn', 'Michael Arndt'
-
-Most profitable writers for medium budget Movies: 'Ken Daurio', 'Stephenie Meyer', 'Kevin Hageman', 'Dan Hageman', 'Erik Sommers', 'Cinco Paul', 'Wellesley Wild', 'Anthony McCarten', 'Brian Lynch', 'E.L. James', 'Robert Mark Kamen', 'Craig Mazin', 'Alec Sulkin', 'Billy Ray', 'Chris McKenna', 'Niall Leonard'
 
 **Actors**
 
 The figure below displays the bar graphs for the top actors based on profit (left) and based on profit_rate (right) for high budget movies. 
 
+Most profitable actors: 
+'Josh Duhamel', 'Vin Diesel', 'Mark Ruffalo', 'Chris Hemsworth', 'Josh Gad', 'Robert Downey Jr.', 'Javier Bardem', 'Chris Evans', 'Idris Elba', 'Josh Hutcherson', 'Chris Pratt', 'Jason Momoa', 'Jeremy Renner'
+
 ![Actors-HighBudget](figures/actor-profit_highBudget.png)
-
-Most profitable actors for high budget Movies: 'Josh Duhamel', 'Vin Diesel', 'Mark Ruffalo', 'Chris Hemsworth', 'Josh Gad', 'Robert Downey Jr.', 'Javier Bardem', 'Chris Evans', 'Idris Elba', 'Josh Hutcherson', 'Chris Pratt', 'Jason Momoa', 'Jeremy Renner'
-
-Most profitable actors for medium budget Movies: 'Eric Johnson', 'Jamie Dornan', 'Michael Keaton', 'Taylor Lautner', 'Eric Stonestreet', 'Aziz Ansari', 'Neil Patrick Harris', 'Bradley Cooper', 'Thomas Brodie-Sangster', "Dylan O'Brien", 'Seth MacFarlane', 'Andy Samberg', 'Benjamin Bratt', 'Marwan Kenzari', 'Ed Skrein', 'Denis Leary'
 
 **Actresses**
 
 The figure below displays the bar graphs for the top actresses based on profit (left) and based on profit_rate (right) for high budget movies. 
 
-![Actresses-HighBudget](figures/actress-profit_highBudget.png)
-
 Most profitable actresses for high budget Movies: 'Katherine Waterston', 'Emma Watson', 'Gal Gadot', 'Scarlett Johansson', 'Anne Hathaway', 'Jessica Chastain', 'Naomie Harris', 'Bryce Dallas Howard', 'Michelle Williams', 'Cate Blanchett', 'Brie Larson'
 
-Most profitable actresses for medium budget Movies: 'Ali Larter', 'Hailee Steinfeld', 'Jennifer Lawrence', 'Dakota Johnson', 'Eloise Mumford', 'Sandra Bullock', 'Jennifer Ehle', 'Kristen Wiig', 'Miranda Cosgrove', 'Famke Janssen', 'Selena Gomez'
+![Actresses-HighBudget](figures/actress-profit_highBudget.png)
 
-### Q4: Which genres make the most profit (High Budget)?
+
+#### Medium budget Movies: ($20,000,000 < production_budget <= $100,000,000)
+
+Similar study made for the medium budget movies. Profitable directors, writers, actors and actresses are determined for the medium budget range.
+
+Directors: 'Chris Renaud', 'Christopher Miller', 'Genndy Tartakovsky', 'Kyle Balda', 'Pierre Coffin', 'James Foley', 'Steve Martino', 'Jake Kasdan', 'Phil Lord', 'Paul Feig', 'Olivier Megaton'
+
+Writers: 'Ken Daurio', 'Stephenie Meyer', 'Kevin Hageman', 'Dan Hageman', 'Erik Sommers', 'Cinco Paul', 'Wellesley Wild', 'Anthony McCarten', 'Brian Lynch', 'E.L. James', 'Robert Mark Kamen', 'Craig Mazin', 'Alec Sulkin', 'Billy Ray', 'Chris McKenna', 'Niall Leonard'
+
+Actors: 'Eric Johnson', 'Jamie Dornan', 'Michael Keaton', 'Taylor Lautner', 'Eric Stonestreet', 'Aziz Ansari', 'Neil Patrick Harris', 'Bradley Cooper', 'Thomas Brodie-Sangster', "Dylan O'Brien", 'Seth MacFarlane', 'Andy Samberg', 'Benjamin Bratt', 'Marwan Kenzari', 'Ed Skrein', 'Denis Leary'
+
+Actresses: 'Ali Larter', 'Hailee Steinfeld', 'Jennifer Lawrence', 'Dakota Johnson', 'Eloise Mumford', 'Sandra Bullock', 'Jennifer Ehle', 'Kristen Wiig', 'Miranda Cosgrove', 'Famke Janssen', 'Selena Gomez'
+
+
+### Q4: Which genres make the most profit?
+
+For Business Questions 4, I have analyzed the movies in two seperate budget ranges:
+* High budget: production_budget > $100,000,000
+* Medium budget: $20,000,000 < production_budget <= $100,000,000
+
+#### High Budget Movies (production_budget > $100,000,000)
 
 The bar graphs below compares the most common genres for profit (left) and for profit_rate (right) for high budget movies.
 
+Most profitable genres: Sci-Fi, Animation, Thriller, Adventure
+
 ![Genres2-HighBudget](figures/genres-profit2_highBudget.png)
 
-Most profitable genres for high budget Movies: Sci-Fi, Animation, Thriller, Adventure
+#### Medium budget Movies: ($20,000,000 < production_budget <= $100,000,000)
 
 Similar study made for medium budget movies.
-Most profitable genres for medium budget Movies: Animation, Music, Family, Comedy, Adventure
+
+Profitable Genres: Animation, Music, Family, Comedy, Adventure
+
+![Genres2-HighBudget](figures/genres-profit2_medBudget.png)
 
 ## Conclusion
 
