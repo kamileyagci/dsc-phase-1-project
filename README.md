@@ -1,3 +1,5 @@
+# Movie Industry Study
+
 **Author: Kamile Yagci**
 
 ## Overview
