@@ -1,3 +1,5 @@
+# Movie Industry Study 
+
 **Author: Kamile Yagci**
 
 ## Overview
@@ -40,36 +42,63 @@ The data files are:
 
 4. Merge Data into one DataFrame.
 
-4. Clean Data.
+4. Clean Data
+    * Remove the unnecessary columns
+    * Remove rows with $0 worldwide_gross
+    * Change the currency columns to float
+    * Seperate genres
+    * Slice the release year from the release date
 
-5. Define Profit.
+5. Create Profit Columns
 
-6. Save the created DataFrame into a a new data file.
+    Two types of profit is defined for this study:
+    * Profit: profit_gross =  worldwide_gross - production_budget
+    * Profit Rate: profit_rate = worldwide_gross / production_budget
+
+6. Save the created DataFrame into a a new data file 'myData.csv'. This is the only data file be used for the analysis.
 
 **Part II**
 
 7. Analyse Business Question 1: Is there a correlation between the production budget and the profit?
-    * Filter data for Question 1 & 2
+    * Create a subset of the data with the selected/required columns for Question 1 and Question 2.
+    * Filter data specifed for Question 1 & 2:
+        * Remove duplicate movies.
+        * Remove old movies with release year before 1990; focus on past 30 years.
+        * Remove outlier movies with very low budget (<$10,000,000) and very high profit rate (>30). 
     * Data Visualization and Correlation Calculation: Scatter Plots for 'Profit vs Production Budget' and 'Profit Rate vs Production Rate'
     * Detailed look at the ''Profit vs Production Budget' at different budget ranges: Data Visualization, Correlation and Median profit Rate.
 
 8. Analyse Business Question 2: Is there a correlation between the ratings and the profit?
+    * Use the subset of the data created for Business Question 1.
     * Data Visualization and Correlation Calculation: Scatter 'Profit vs Average Rating' and 'Profit Rate vs Average Rating'.
 
 9. Analyse Business Question 3: Which directors and writers make the most profit?
-    * Filter data specifed for Question 3
-    * Select the high budget movies (production_budget > $100,000,000).
-    * Find Most Profitable Directors
-        * Data Visualization: Bar Graphs for Median Profit and Median Profit Rate. Top names will be displayed only. 
+    * Create a subset of the data with the selected/required columns for Question 3.
+    * Filter data specifed for Question 3:
+        * Remove duplicate movies.
+        * Remove old movies with release year before 1990; focus on past 30 years.
+        * Remove the names of the dead people.
+        * Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
+    * Most Profitable Directors:
+        * Remove the directors with less than 2 movies 
+        * GroupBy Directors and calculate the median Profit and median Profit Rate
+        * Data Visualization: Bar Graphs for Profit and Profit Rate. Top names will be displayed only. 
         * Find the intersection of the names on the two lists/bar graphs: Profit and Profit Rate.
-    * Find Profitable Writers
-    * Find Profitable Actors
-    * Most Profitable Actresses
+    * Most Profitable Writers:
+        Apply the same analysis as directors.
+    * Most Profitable Actors:
+        Apply the same analysis as directors.
+    * Most Profitable Actresses:
+        Apply the same analysis as directors.
 
 10. Analyse Business Question 4: Which genres make the most profit?
-    * Filter data specifed for Question 4.
-    * Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
-    * Data Visualization: Bar Graphs for Median Profit and Median Profit Rate.
+    * Create a subset of the data with the selected/required columns for Question 4.
+    * Filter data specifed for Question 4:
+        * Remove duplicate movies.
+        * Remove old movies with release year before 1990; focus on past 30 years.
+        * Select the high budget movies (production_budget > $100,000,000). This selection is based on the analysis for Question 1. 
+    * GroupBy Genres and calculate the median Profit and median Profit Rate. 
+    * Data Visualization: Bar Graphs for Profit and Profit Rate. Common genres with large number of movies will be displayed only. 
     * Visually determine the most profitable names based on two bar graphs: Profit and Profit Rate.
 
 **Part III**
@@ -81,21 +110,6 @@ The data files are:
 
 ## Analysis and Results
 
-### Merge, Clean and Save Data
-
-The data from five files is combined into one data frame.
-
-The data is cleaned as follows:
-    * Remove the unnecessary columns
-    * Remove rows with $0 worldwide_gross
-    * Change the currency columns to float
-    * Seperate genres
-    * Slice the release year from the release date
-
-The data Frame is saved into a a new data file 'myData.csv'. This is the only data file to be used for the analysis.
-
-### Profit Rate Definition
-
 My analysis and business questions focus on the factors affecting the profit in movie industry. Therefore, it is crucial to have a good definition of the profit. Instead of using only one profit definition, I chose to explore two definitions:
 
 * Profit: profit_gross =  worldwide_gross - production_budget
@@ -105,49 +119,27 @@ In this study, for each business question, I will look at both 'Profit' and 'Pro
 
 ### Q1: Is there a correlation between the production budget and the profit?
 
-The subset of data is created with the selected/required columns for Question 1 and Question 2.
-
-Data is Filtered with specifed cuts for Question 1 & 2:
-    * Remove duplicate movies.
-    * Remove old movies with release year before 1990; focus on past 30 years.
-    * Remove outlier movies with very low budget (<$10,000,000) and very high profit rate (>30).
-
 In order to understand the effect of prdoduction budget, I plotted the scatter graphs for both profit and profit rate. Then, I have calculated the correlation for each distribution. The correlation values are displayed on the plots.
-
 * As expected and observed on the plot (top), there is a high correlation between the production budget and profit.
 * The correlation between production budget and profit rate is almost zero (bottom plot). The shape of the distribution varies in different budget ranges, the correlation might be different, too.  Therefore, it is better to look at the profit rate distributions in zoomed budget ranges. 
 
-![Profit-vs-Budget](/figures/budget-profit1.png)
+![Profit-vs-Budget](figures/budget-profit1.png)
 
 The production budget is divided in 4 ranges, and scatter graphs are plotted for all. The median profit_rate is calculated and displayed on the graphs in addition to the correlation values.
-
 * Low budget: production_budget <= $20,000,000 (top left): Almost zero correlation. Small median profit rate. Investment not recommended.
 * Medium budget: $20,000,000 < production_budget <= $100,000,000 (top right): Almost zero correlation. Acceptable profit rate. Investment is recommended.
 * High budget: $100,000,000 < production_budget <= $200,000,000 (bottom left): Some positive correlation exists. Good, stable profit rate. Highly recommended for investement.
 * Very high budget: production_budget > $100,000,000 (bottom right): Negative correlation. Median profit rate is high. There is a likelihood that profit rate will decrease as the budget increases. The risk is high on this investment. The uncertinity in the analysis for this budget range is high due to the small data available.
 
-![Profit-vs-BudgetRanges](/images/figures_MovieBudget/budget-profit2.png)
+![Profit-vs-BudgetRanges](figures/budget-profit2.png)
 
 ### Q2: Is there a correlation between the ratings and the profit?
 
-The filtered data Frame created for Question is used for Question 2. 
+The below scatter plots show the profit versus average rating (top) and profit_rate versus average rating (bottom). There is good correlation between average rating and profit/profit_rate. However, after rating 8, the profit and profit rate drops. The left plot shows that, many high rating movies bring low profit, they are probably low budget movies. According to the right plot, the profit_rate is also low for the high rating movies. From profit point of view, I recommend to aim for making movies with average rating between 6 and 8.
 
-The below scatter plots show the profit versus average rating (top) and profit_rate versus average rating (bottom). There is good correlation between average rating and profit/profit_rate. However, after rating 8, the profit and profit rate drops. The left plot shows that, many high rating movies bring low profit, they are probably low budget movies. According to the right plot, the profit_rate is also low for the high rating movies. 
-
-From profit point of view, I recommend to aim for making movies with average rating between 6 and 8.
-
-![Profit-vs-Rating](/figures/rating-profit.png)
+![Profit-vs-Rating](figures/rating-profit.png)
 
 ### Q3: Which directors, writers, actors and actresses make the most profit?
-
-The subset of data is created with the selected/required columns for Question 3.
-
-Data is Filtered with specifed cuts for Question 3:
-    * Remove duplicate movies.
-    * Remove old movies with release year before 1990; focus on past 30 years.
-    * Remove the names of the deceased people.
-
-The GroupBy method with Median aggregiation is applied on names. Bar Graphs for Median Profit and Median Profit Rate are drawn.
 
 For Business Questions 3 and 4, I have analyzed the movies in two seperate budget ranges:
 * High budget: production_budget > $100,000,000
@@ -157,14 +149,14 @@ For Business Questions 3 and 4, I have analyzed the movies in two seperate budge
 
 **Directors**
 
-The figure below displays the bar graphs for the top directors based on median profit (left) and based on profit_rate (right) for high budget movies. 
+The figure below displays the bar graphs for the top directors based on profit (left) and based on profit_rate (right) for high budget movies. 
 
 For this analysis, I declare that the intersection of these two bar graphs is the list of the most profitable directors.
 
 Most profitable directors: 
 'Lee Unkrich', 'Michael Bay', 'Jon Favreau', 'Rich Moore', 'Anthony Russo', 'Sam Mendes', 'Joe Russo', 'Byron Howard', 'Joss Whedon', 'Francis Lawrence', 'Don Hall'
 
-![Directors-HighBudget](/figures/director-profit_highBudget.png)
+![Directors-HighBudget](figures/director-profit_highBudget.png)
 
 **Writers**
 
@@ -173,7 +165,7 @@ The figure below displays the bar graphs for the top writers based on profit (le
 Most profitable writers: 
 'Linda Woolverton', 'Phil Johnston', 'Gary Scott Thompson', 'Meg LeFauve', 'Jim Reardon', 'Nicole Perlman', 'Jeff Pinkner', 'Erik Sommers', 'Chris McKenna', 'Derek Connolly', 'Suzanne Collins', 'Zak Penn', 'Michael Arndt'
 
-![Writers-HighBudget](/figures/writer-profit_highBudget.png)
+![Writers-HighBudget](figures/writer-profit_highBudget.png)
 
 **Actors**
 
@@ -182,7 +174,7 @@ The figure below displays the bar graphs for the top actors based on profit (lef
 Most profitable actors: 
 'Josh Duhamel', 'Vin Diesel', 'Mark Ruffalo', 'Chris Hemsworth', 'Josh Gad', 'Robert Downey Jr.', 'Javier Bardem', 'Chris Evans', 'Idris Elba', 'Josh Hutcherson', 'Chris Pratt', 'Jason Momoa', 'Jeremy Renner'
 
-![Actors-HighBudget](/figures/actor-profit_highBudget.png)
+![Actors-HighBudget](figures/actor-profit_highBudget.png)
 
 **Actresses**
 
@@ -190,7 +182,7 @@ The figure below displays the bar graphs for the top actresses based on profit (
 
 Most profitable actresses: 'Katherine Waterston', 'Emma Watson', 'Gal Gadot', 'Scarlett Johansson', 'Anne Hathaway', 'Jessica Chastain', 'Naomie Harris', 'Bryce Dallas Howard', 'Michelle Williams', 'Cate Blanchett', 'Brie Larson'
 
-![Actresses-HighBudget](/figures/actress-profit_highBudget.png)
+![Actresses-HighBudget](figures/actress-profit_highBudget.png)
 
 
 #### Medium budget Movies: ($20,000,000 < production_budget <= $100,000,000)
@@ -208,27 +200,17 @@ Actresses: 'Ali Larter', 'Hailee Steinfeld', 'Jennifer Lawrence', 'Dakota Johnso
 
 ### Q4: Which genres make the most profit?
 
-The subset of data is created with the selected/required columns for Question 3.
-
-Data is Filtered with specifed cuts for Question 4:
-    * Remove duplicate movies.
-    * Remove old movies with release year before 1990; focus on past 30 years.
-
-The data is GroupBy 'Genres' with Median aggregiation. The common/popular genres with at least 10 entries are displayed in analysis results. 
-
 For Business Questions 4, I have analyzed the movies in two seperate budget ranges:
 * High budget: production_budget > $100,000,000
 * Medium budget: $20,000,000 < production_budget <= $100,000,000
 
 #### High Budget Movies (production_budget > $100,000,000)
 
-The bar graphs below compares the most common genres for median profit (left) and for median profit_rate (right) for high budget movies.
+The bar graphs below compares the most common genres for profit (left) and for profit_rate (right) for high budget movies.
 
-I visually determined the most profitable genres based on two bar graphs: Profit and Profit Rate.
+Most profitable genres for High Budget: Sci-Fi, Animation, Thriller, Adventure
 
-Most profitable genres for High Budget: Sci-Fi, Animation, Adventure, Comedy, and Action
-
-![Genres2-HighBudget](/images/figures_MovieBudget/figures/genres-profit2_highBudget.png)
+![Genres2-HighBudget](figures/genres-profit2_highBudget.png)
 
 #### Medium budget Movies: ($20,000,000 < production_budget <= $100,000,000)
 
@@ -236,7 +218,7 @@ Similar study made for medium budget movies.
 
 Profitable Genres for Medium Budget: Animation, Music, Family, Comedy, Adventure
 
-![Genres2-HighBudget](/figures/genres-profit2_medBudget.png)
+![Genres2-HighBudget](figures/genres-profit2_medBudget.png)
 
 ## Conclusion
 
