@@ -126,7 +126,7 @@ The production budget is divided in 4 ranges, and scatter graphs are plotted for
 * High budget: $100,000,000 < production_budget <= $200,000,000 (bottom left): Some positive correlation exists. Good, stable profit rate. Highly recommended for investement.
 * Very high budget: production_budget > $100,000,000 (bottom right): Negative correlation. Median profit rate is high. There is a likelihood that profit rate will decrease as the budget increases. The risk is high on this investment. The uncertinity in the analysis for this budget range is high due to the small data available.
 
-![Profit-vs-BudgetRanges](/images/figures_MovieBudget/budget-profit2.png)
+![Profit-vs-BudgetRanges](/figures/budget-profit2.png)
 
 ### Q2: Is there a correlation between the ratings and the profit?
 
@@ -228,7 +228,7 @@ I visually determined the most profitable genres based on two bar graphs: Profit
 
 Most profitable genres for High Budget: Sci-Fi, Animation, Adventure, Comedy, and Action
 
-![Genres2-HighBudget](/images/figures_MovieBudget/figures/genres-profit2_highBudget.png)
+![Genres2-HighBudget](/figures/genres-profit2_highBudget.png)
 
 #### Medium budget Movies: ($20,000,000 < production_budget <= $100,000,000)
 
